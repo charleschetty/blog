@@ -66,7 +66,7 @@ sudo pacman -S gst-libav gst-plugins-bad gst-plugins-base gst-plugins-good gst-p
 
 ## 浏览器
 
-我个人使用的是firefox和brave浏览器，原版chrome用不惯，firefox个人用的是第三方UI：[minimal-functional-fox](https://github.com/mut-ex/minimal-functional-fox)
+我个人使用的是firefox和brave浏览器，原版chrome用不惯，firefox个人用的是第三方UI：[minimal-functional-fox](https://github.com/mut-ex/minimal-functional-fox)，代理工具使用[clash](https://github.com/Dreamacro/clash/wiki)和[tor](https://wiki.archlinux.org/title/Tor)。
 
 Startpage：[Bento](https://github.com/migueravila/Bento)
 
@@ -148,8 +148,6 @@ lvim.plugins = {
       'CRProjects'
     },
     config = function()
-      require("code_runner").get_filetype_command() -- get the current command for this filetype
-      require("code_runner").get_project_command() -- get the current command for this project
       require('code_runner').setup({
 
         term = {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://charleschetty.github.io/blog/</id>
+    <title>Charles Chetty Blog</title>
+    <updated>2022-07-24T17:45:12.152Z</updated>
+    <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+    <link rel="alternate" href="https://charleschetty.github.io/blog/"/>
+    <link rel="self" href="https://charleschetty.github.io/blog/feed.atom"/>
+    <subtitle>Charles Chetty 个人博客</subtitle>
+    <entry>
+        <title type="html"><![CDATA[Arch基本使用]]></title>
+        <id>https://charleschetty.github.io/blog/posts/Untitled.html</id>
+        <link href="https://charleschetty.github.io/blog/posts/Untitled.html">
+        </link>
+        <updated>2022-07-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Arch Linux + i3wm 基本环境配置]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[文章转载]]></title>
+        <id>https://charleschetty.github.io/blog/posts/zhuanzai.html</id>
+        <link href="https://charleschetty.github.io/blog/posts/zhuanzai.html">
+        </link>
+        <updated>2022-05-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[看着比较好的文章都会在这里以链接的形式转载，这些文章还是在中文互联网上都能找到的。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[书籍记录]]></title>
+        <id>https://charleschetty.github.io/blog/posts/shu.html</id>
+        <link href="https://charleschetty.github.io/blog/posts/shu.html">
+        </link>
+        <updated>2022-04-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[记录一下学习过程]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[基本环境配置]]></title>
+        <id>https://charleschetty.github.io/blog/posts/demo-markdowm.html</id>
+        <link href="https://charleschetty.github.io/blog/posts/demo-markdowm.html">
+        </link>
+        <updated>2022-03-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[简单记录一下自己的日常学习娱乐环境
+]]></summary>
+    </entry>
+</feed>

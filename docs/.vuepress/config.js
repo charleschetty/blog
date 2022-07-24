@@ -14,7 +14,7 @@ module.exports = {
   },
   theme: path.join(__dirname, '..', '..'),
   themeConfig: {
-    hostname: 'http://charleschettyblog.xyz/',
+    hostname: 'https://charleschetty.github.io/blog/',
 //     ga: 'UA-102731925-1',
     smoothScroll: true,
     lastUpdated: 'Last Updated',

@@ -434,6 +434,8 @@ paru -S plasma-meta ＃😏
 paru -Ｒ plasma-meta plasma ＃😄
 ```
 
+对于鼠标主题，可能出现设置以后某些程序中正常但是桌面鼠标央视不变的问题，可以参考相关[archwiki](https://wiki.archlinux.org/title/Cursor_themes)，我自己是写进了`~/.Xresources`和`~/.xprofile`，然后又在`/usr/share/icons/default/index.theme`更改了默认设置。
+
 ## 环境配置
 
 ### 浏览器配置

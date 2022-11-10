@@ -7,7 +7,7 @@ async function config() {
     return {
         title: "Charles's Blog",
         base: '/blog/',
-        description: 'vitepress,blog,blog-theme',
+        description: 'Charles\'s Blog',
         ignoreDeadLinks: true,
         appearance: 'dark',
         themeConfig: {

@@ -6,7 +6,7 @@ async function config() {
     await generatePaginationPages(pageSize)
     return {
         title: "Charles's Blog",
-        base: '/',
+        base: '/blog/',
         description: 'vitepress,blog,blog-theme',
         ignoreDeadLinks: true,
         appearance: 'dark',

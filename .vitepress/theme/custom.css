@@ -3,20 +3,15 @@
     --vp-c-white-soft: #e5e9f0;
     --vp-c-white-mute: #d8dee9;
 
-    /* --vp-c-white: #c72727;
-    --vp-c-white-soft: #457cdb;
-    --vp-c-white-mute: #44c409; */
-
 
     --vp-c-black: #1d1f23;
-    --vp-c-black-pure: #2e3440;
+    --vp-c-black-pure: #20252f;
+    --vp-c-black-soft: #20252f;
+    --vp-c-black-mute: #20252f;
+    /* --vp-c-black-pure: #2e3440;
     --vp-c-black-soft: #2e3440;
     --vp-c-black-mute: #2e3440;
-
-    /* --vp-c-black: #ab27bd; */
-    /* --vp-c-black-pure: #3f09d4; */
-    /* --vp-c-black-soft: #57b81f; */
-    /* --vp-c-black-mute: #ddc80a; */
+ */
 
     --vp-c-green: #a3be8c;
     /* --vp-c-green-light: #1b76ff; */

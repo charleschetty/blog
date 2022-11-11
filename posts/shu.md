@@ -4,6 +4,7 @@ title: 书籍记录
 tags:
 - book
 description: 记录一下学习过程
+lastUpdated: true
 ---
 
 #  书籍记录

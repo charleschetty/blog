@@ -1,12 +1,18 @@
 // vite.config.ts
-import { defineConfig } from 'vite'
-import { SearchPlugin } from 'vitepress-plugin-search'
+// import { defineConfig } from 'vite'
+// import { SearchPlugin } from 'vitepress-plugin-search'
 
-export default defineConfig({
-  plugins: [
-    SearchPlugin({
-      encode: false,
-      tokenize: 'full'
-    })
-  ]
-})
+// export default defineConfig({
+//   plugins: [
+//     SearchPlugin({
+//       encode: false,
+//       tokenize: 'full'
+//     })
+//   ]
+// })]
+
+
+// var options = {};
+// export default defineConfig({
+//   plugins: [SearchPlugin(options)],
+// });

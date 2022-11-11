@@ -2,7 +2,7 @@ const { getPosts, generatePaginationPages } = require('./theme/serverUtils')
 const customElements = ['mjx-container']
 
 async function config() {
-    const pageSize = 3
+    const pageSize = 7
     await generatePaginationPages(pageSize)
     return {
         title: "Charles's Blog",
@@ -13,6 +13,7 @@ async function config() {
         themeConfig: {
             posts: await getPosts(),
             pageSize: pageSize,
+            lastUpdatedText: 'Updated Date',
             website: 'https://github.com/charleschetty', //copyright link
             // 评论的仓库地址
             // comment: {
@@ -31,14 +32,9 @@ async function config() {
             outlineTitle: '文章摘要'
             // socialLinks:[{ icon: 'github', link: 'https://github.com/c' }],
         },
-        srcExclude: ['README.md'], // exclude the README.md , needn't to compiler
-        // markdown: {
-        //     theme: 'nord',
-        //     lineNumbers: true,
-        //     config: (md) => {
-        //         md.use(require('markdown-it-katex'));
-        //     }
-        // },
+        srcExclude: ['README.md','/node_modules'], // exclude the README.md , needn't to compiler
+        src : '/posts',
+
         markdown: {
             theme :'nord',
             config: (md) => {
@@ -46,9 +42,10 @@ async function config() {
             }
         },
         vite: {
-            //build: { minify: false }
+            build: { minify: false },
             server: { port: 8080 }
-        }
+        },
+        cleanUrls: 'disabled',
         /*
       optimizeDeps: {
           keepNames: true

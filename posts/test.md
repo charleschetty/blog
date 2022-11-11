@@ -7,6 +7,7 @@ tags:
 - cpp
 - test
 description: 测试
+lastUpdated: true
 head:
   - - link
     - rel: stylesheet
@@ -15,7 +16,9 @@ head:
 
 # test
 
-换了vitepress，因为是测试版，所以目前还没有RSS插件支持，我个人打算同时开一个vuepress版本，然后编译之后把rss文件复制过来。手机版可能会有些问题，配色的话链接配色可能在浅色模式下影响感官。
+换了vitepress，因为是测试版，所以目前还没有RSS插件支持，~~我个人打算同时开一个vuepress版本~~，然后编译之后把rss文件复制过来。手机版可能会有些问题，配色的话链接配色可能在浅色模式下影响感官。
+
+考虑了一下去掉了搜索栏，加了rss。
 
 ## test
 

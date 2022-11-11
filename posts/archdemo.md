@@ -4,6 +4,7 @@ title: 基本环境配置
 tags:
 - linux
 description: 简单记录一下自己的日常学习娱乐环境
+lastUpdated: true
 ---
 # 基本环境配置
 

@@ -4,6 +4,7 @@ title: Arch基本使用
 tags:
 - linux
 description:  Arch基本使用
+lastUpdated: true
 ---
 
 

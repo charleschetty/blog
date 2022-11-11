@@ -4,7 +4,8 @@
     --vp-c-white-mute: #d8dee9;
 
 
-    --vp-c-black: #1d1f23;
+    --vp-c-black: #15171a;
+    /* --vp-c-black: #5a79b8; */
     --vp-c-black-pure: #20252f;
     --vp-c-black-soft: #20252f;
     --vp-c-black-mute: #20252f;
@@ -13,7 +14,9 @@
     --vp-c-black-mute: #2e3440;
  */
 
-    --vp-c-green: #a3be8c;
+    --vp-c-green: #2d5a06;
+    --vp-c-green-dark: #adc797;
+
     /* --vp-c-green-light: #1b76ff; */
     /* --vp-c-green-lighter: #2563eb; */
     /* --vp-c-green-dark: #005be3; */
@@ -24,7 +27,7 @@
 
     --vp-font-family-base: 'Microsoft Yahei',"Source Code", sans-serif;
 
-    /* --vp-code-bg-color: #52525b; */
+    /* --vp-code-bg-color: #a2a2c9; */
 
     /* pure theme color */
     /* --li-dot-color: var(--vp-c-brand); */
@@ -53,9 +56,13 @@
 
 .content a[rel~=noreferrer]:link,
 a[rel~=noreferrer]:visited {
-    color: var(--vp-c-brand);
+    color: var(--vp-c-green);
     font-weight: 400 !important;
     border-bottom: 1px solid var(--vp-c-brand);
+}
+
+.dark{
+    --vp-c-green : var(--vp-c-green-dark)
 }
 
 .content a[rel~=noreferrer]:hover {
@@ -74,12 +81,12 @@ h1 {
 h2 {
     font-size: 2rem;
     padding-bottom: 0.5rem;
-    border-bottom: 3px double var(--vp-c-text-1);
+    /* border-bottom: 3px double var(--vp-c-text-1); */
 
     /* font-size: 1.25rem !important; */
     font-weight: 500 !important;
-    /* border-bottom: 1px solid var(--vp-c-divider-light); */
-    /* border-top: none !important; */
+    border-bottom: 2px solid var(--vp-c-text-1);
+    border-top: none !important;
     /* padding: 4px 0; */
     margin: inherit !important;
 }
@@ -216,13 +223,13 @@ h6 {
 
 /*mobile*/
 @media screen and (max-width: 720px) {
-    .VPDoc {
+    /* .VPDoc {
         padding-bottom: 20px !important;
-    }
+    } */
 
-    .vp-doc h1 {
+    /* .vp-doc h1 {
         font-size: 1.25rem !important;
-    }
+    } */
 
     .article {
         padding: 4px;

@@ -36,7 +36,7 @@ async function config() {
         src : '/posts',
 
         markdown: {
-            theme :'nord',
+            theme :{light:'nord',dark:'nord'},
             config: (md) => {
                 md.use(require('markdown-it-katex'));
             }

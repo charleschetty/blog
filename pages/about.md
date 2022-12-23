@@ -4,7 +4,7 @@ title: About
 description: About me test
 aside: false
 ---
-数学系本科生,Github：[charleschetty](https://github.com/charleschetty)，其他平台不发东西。
+数学系本科生,Github：[charleschetty](https://github.com/charleschetty)，B站：[吃战斧洋芋](https://space.bilibili.com/1169086549)
 
 ### 关于本博客
 

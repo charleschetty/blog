@@ -8,7 +8,9 @@ lastUpdated: true
 ---
 # 基本环境配置
 
-这篇文章可以配合[另一篇文章](https://charleschetty.github.io/blog/posts/Untitled.html)使用。目前对于安卓刷机比较麻烦，像我的平板打算刷lineageos，结果没人适配，只能作罢。路由器打算刷openwrt，不过这台华为路由肯定不行，等换小米吧。
+这篇文章可以配合[另一篇文章](https://charleschetty.github.io/blog/posts/Untitled.html)使用，配套视频：[我的archlinux电脑工作环境](https://www.bilibili.com/video/BV1o44y1Z7Ri/)
+
+目前对于安卓刷机比较麻烦，像我的平板打算刷lineageos，结果没人适配，只能作罢。路由器打算刷openwrt，不过这台华为路由肯定不行，等换小米吧。
 
 ## 桌面配置
 

@@ -32,7 +32,7 @@ that you will take 2-3 hours to read.
 And there is a [book](https://www.semanticscholar.org/paper/Causal-Inference-in-Statistics%3A-A-Primer-Pearl-Glymour/71e7a901efa84609eccd74876dab3ba30052d165)
 written by Pearl, you can see the set of articles as a brief version of this book.
 
-So if you don't want to know the details of the paper, you can close this article and 
+So if you don't want to know the details of the [paper](https://arxiv.org/abs/2203.08653), you can close this article and 
 do what you love to do, the following content is about the paper I will present. 
 I write this article based on my ppt. If you can't see the pictures, maybe your internet condition is **special**,
 I have no idea, but there are some ways that may help and I wrote them 
@@ -168,16 +168,17 @@ counterfactual distribution $P^{M | X=x, Z={h}, Y =y_h; do[Z={h'}]}(Y )$.
 
 ## Relating the Counterfactual and Interventional Worlds
 
-**Definition 1** (Set Invariance). A mechanism $f_Y$ for variable $Y$ is set invariant with respect to $Z$ if, for any
-two realizations $Z = \zeta$ and $Z = \zeta'$ such that $\zeta \subseteq \zeta'$, it holds that
+**Definition 1** (Set Invariance). 
+*A mechanism $f_Y$ for variable $Y$ is set invariant with respect to $Z$ if, for any
+two realizations $Z = \zeta$ and $Z = \zeta'$ such 
+that $\zeta \subseteq \zeta'$, it holds that*
 $$
 f_Y(x, \zeta, u)=(f_Y(x, \zeta', u))_{\zeta} \text{ }{,}\text{ } 
 for \text{ }all\text{ } x \in X, u \in U .
 $$
+*A SCM $\mathcal{M}$ with such a mechanism is set invariant for $Y$.*$\Box$
 
-A SCM $\mathcal{M}$ with such a mechanism is set invariant for $Y$.
-
->Let's see an economist joke: 
+Let's see an economist joke: 
  "If all the economists were laid end to end, 
 they would not reach a conclusion.” --George Bernard Shaw. 
 So, in this situation, even 
@@ -185,12 +186,12 @@ if they communicate, they can't change each other's minds. Maybe this is a SI-SC
 $Z$ is a set of economists, while the size of $Y$ will be very huge.
 
 **Theorem 2**. 
-Any SCM $\mathcal{M}$ with mechanism $f_Y$ of the form $f_Y(X, Z, U) = (f_{Y_h}(X, U))_{h\in Z}$, 
+*Any SCM $\mathcal{M}$ with mechanism $f_Y$ of the form $f_Y(X, Z, U) = (f_{Y_h}(X, U))_{h\in Z}$, 
 where $f_{Y_h} : \mathcal{X} \times \mathcal{U} \rightarrow \mathcal{Y}$
- are arbitrary functions, is set invariant for $Y$.
+ are arbitrary functions, is set invariant for $Y$.* $\Box$
 
->This is simple, Maybe the function $f_Y$ can be expressed as this form, and obviously, it is a SI-SCM.
-> $$
+This is simple, Maybe the function $f_Y$ can be expressed as this form, and obviously, it is a SI-SCM.
+$$
 f_Y(X, Z, U) = \begin{cases}
   f_1(X,U)&\text{if}&Z=Z_0\\
   f_2(X,U)&\text{if}&Z=Z_1\\
@@ -198,55 +199,59 @@ f_Y(X, Z, U) = \begin{cases}
 \end{cases}
 $$
 
-**Theorem 3**. For any SI-SCM $\mathcal{M}$, there exists an equivalent SI-SCM $\mathcal{M}'$ 
-with causal mechanism 
+**Theorem 3**. 
+*For any SI-SCM $\mathcal{M}$, there exists an equivalent SI-SCM $\mathcal{M}'$ 
+with causal mechanism
 $f'_Y(X,Z,U)=(f'_{Y_h}(X,U))_{h\in Z}$
-where for $h \in Z$
+where for $h \in Z$*
 $$
 f'_{Y_h}(X,U):=(f_Y(X, \{h\}, U))_{h\in Z}
 $$
+$\Box$
 
-
->The proof is simple, it is easy to construct a $\mathcal{M}'$ based on $\mathcal{M}$, we just need to define 
+The proof is simple, it is easy to construct a $\mathcal{M}'$ based on $\mathcal{M}$, we just need to define 
 $(f'(x, \zeta, u))_h = f(x, \{h\}, u)$. 
 However, it is hard to implement in some situations as the paper highlight.
 
-**Theorem 4**. Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, for any $\zeta$, 
-$\zeta'\in H$such that $\zeta \subseteq \zeta'$, it holds that
+**Theorem 4**. 
+*Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, for any $\zeta$, 
+$\zeta'\in H$such that $\zeta \subseteq \zeta'$, it holds that*
 $$
 P^{\mathcal{M}; do[Z=\zeta]}(Y = y | X) = P^{\mathcal{M}; do[Z=\zeta']}((Y)_{\zeta} = y | X)
 $$
-for any $y \in Y^{|\zeta|}$ where $(Y)_{\zeta}$ 
-  denotes the predictions by the experts in the subset $\zeta \subseteq \zeta'$.
+*for any $y \in Y^{|\zeta|}$ where $(Y)_{\zeta}$ 
+  denotes the predictions by the experts in the subset $\zeta \subseteq \zeta'$.* $\Box$
 
-> We just need to expand both sides of this equation, and use the definition of set invariance, then we will get the proof.
->$$
+We just need to expand both sides of this equation and use the definition of set invariance, then we will get the proof.
+$$
 P^{\mathcal{M};\text{do}[Z:=\zeta']}(Y_{\zeta}=y|X=x)=\sum_{u\in\mathcal{U}}P(U=u)\cdot \mathcal{I}[f(x,\zeta',u)_{\zeta}=y]
 $$
->$$
+$$
 P^{\mathcal{M};\text{do}[Z:=\zeta]}(Y=y|X=x)=\sum_{u\in\mathcal{U}}P(U=u)\cdot \mathcal{I}[f(x,\zeta,u)=y]
 $$
->and $f(x,\zeta',u)_{\zeta}=f(x,\zeta,u)$, so we finish the proof
+and $f(x,\zeta',u)_{\zeta}=f(x,\zeta,u)$, so we finish the proof.
 
 So we can conclude that if we expand the set of experts who make predictions, the
 corresponding interventional distribution of $Y$ does not change. There are two corollaries, 
 and the proofs are simple.
 
-**Corollary 1**. Let SCM $\mathcal{M}$ be set invariant for $Y$. 
-Then, for any $h \in H$ and $\zeta \subseteq H$ such that $h \in \zeta$, it holds
-that
+**Corollary 1**. *Let SCM $\mathcal{M}$ be set invariant for $Y$.* 
+*Then, for any $h \in H$ and $\zeta \subseteq H$ such that $h \in \zeta$, it holds
+that*
 $$
-P^{M ; do[Z=\{h\}]}(Y_h | X) = P^{M ; do[Z=\zeta]}(Y_h | X).
+P^{M ; do[Z=\{h\}]}(Y_h | X) = P^{M ; do[Z=\zeta]}(Y_h | X). 
 $$
+$\Box$
 
-**Corollary 2**. Let SCM $\mathcal{M}$ be set invariant for $Y$. 
-Then, for any $h, h' \in H$ and $\zeta \subseteq H$ such that $h, h' \in \zeta$, it
-holds that
+**Corollary 2**. *Let SCM $\mathcal{M}$ be set invariant for $Y$.* 
+*Then, for any $h, h' \in H$ and $\zeta \subseteq H$ such that $h, h' \in \zeta$, it
+holds that*
 $$
 P^{M | X=x,Z=\{h\},Y=c ; \text{do} [Z=\{h'\}]}(Y) = P^{M ; \text{do} [Z=\zeta]}(Y_{h'} | X = x, Y_h = c)
 $$
-for any $x \in X$ and $c \in Y$.
-> The proof is similar to the proof of Theorem4.
+*for any $x \in X$ and $c \in Y$.* $\Box$
+
+The proof is similar to the proof of Theorem 4.
 
 So, we can derive the desired equality between the counterfactual distribution and the conditional
 interventional distribution by using the set invariance and the fact that the noise distribution
@@ -255,42 +260,92 @@ changes equally in both scenarios.
 
 ## Characterizing Mutually Similar Experts
 **Definition 5** (Counterfactual stability). 
-A SCM $\mathcal{M}$ satisfies counterfactual stability for $h, h'$ with respect to
-$Y$ if, for all $\zeta, \zeta' subseteq H$ such that $h \in \zeta$ and $h' \in \zeta'$ 
-and for all $c'\neq c$, the condition
+*A SCM $\mathcal{M}$ satisfies counterfactual stability for $h, h'$ with respect to
+$Y$ if, for all $\zeta, \zeta' \subseteq H$ such that $h \in \zeta$ and $h' \in \zeta'$ 
+and for all $c'\neq c$, the condition*
 $$
 \frac{P^{\mathcal{M}; \text{do}[Z=\zeta']}(Y_{h'}=c | X)}{P^{\mathcal{M} ; do[Z=\zeta]}(Y_h = c | X)}
 \ge
 \frac{P^{\mathcal{M};\text{do}[Z=\zeta']}(Y_{h'}=c'|X)}{P^{\mathcal{M};do[Z=\zeta]}(Y_h=c'|X)}
 $$
-implies that $P^{\mathcal{M}|X,Z=\zeta,Y_h=c;do[Z=\zeta']}(Y_{h'}=c')=0$ where $Y_h=c$
-is the observed outcome under $\text{do}[Z = \zeta]$.
+*implies that $P^{\mathcal{M}|X,Z=\zeta,Y_h=c;do[Z=\zeta']}(Y_{h'}=c')=0$* *where $Y_h=c$
+is the observed outcome under $\text{do}[Z = \zeta]$.* $\Box$ 
+
+
+It is easy to understand, $P^{\mathcal{M}|X, Z=\zeta, Y_h=c;do[Z=\zeta']}(Y_{h'}=c')=0$
+means that if we observed $Y_h=c$ at the condition $X=x, Z=\zeta$, then let doctor $h'$ 
+to give an option, he won't give another option that $Y_{h'}=c'$. Since the doctor $h'$
+didn't really give an option, it is a counterfactual inference problem, we can see it 
+as an intervention $\text{do}[Z=\zeta']$ 
+
+Then let's see the condition, imagine a scenario(:warning: not strict, but it can make readers better understand the definition) , 
+$P(Y_h=0)=\frac{1}{10},P(Y_{h'}=0)=\frac{1}{10}$ and $P(Y_h=1)=\frac{1}{2},P(Y_{h'}=1)=\frac{1}{10}$.
+let us use a very wrong way to think of it as a probability, it means under the 
+situation of $Y_h=0$, the possibility of $Y_{h'}=0$ is much higher than, 
+under the situation of $Y_h=1$ the possibility of $Y_{h'}=1$.
+The explanation in the original [paper](https://arxiv.org/pdf/1905.05824.pdf) is as follows:
+
+>This definition and corollary encode the following intuition
+about counterfactuals: If we had taken an alternative action
+that would have only increased the probability of $Y = i$,
+without increasing the likelihood of other outcomes, then
+the same outcome would have occurred in the counterfactual
+case. Moreover, in order for the outcome to be different
+under the counterfactual distribution, the relative likelihood
+of an alternative outcome must have increased relative to that
+of the observed outcome. 
+
 
 **Definition 6** (Conditional stability). 
-A SCM M satisfies conditional stability for two experts $h, h' \in H$ with
+*A SCM M satisfies conditional stability for two experts $h, h' \in H$ with
 respect to $Y$ if, for all $\zeta \subseteq H$ such that $h, h' \in \zeta$ 
-and for all $c'\neq c$, the condition
+and for all $c'\neq c$, the condition*
 $$
 \frac{P^{\mathcal{M} ; \text{do}[Z=\zeta]}(Y_{h'} = c | X)}
 {P^{\mathcal{M} ; \text{do}[Z=\zeta]}(Y_h = c | X)} \ge 
 \frac{P^{\mathcal{M} ; \text{do}[Z=\zeta]}(Y_{h'} = c' | X)}
 {P^{\mathcal{M} ; \text{do}[Z=\zeta]}(Y_h = c' | X)}
 $$
-implies that $P^{\mathcal{M};\text{do}[Z=\zeta]}(Y_{h'} = c' | X, Y_h = c) = 0$.
+*implies that $P^{\mathcal{M};\text{do}[Z=\zeta]}(Y_{h'} = c' | X, Y_h = c) = 0$.* $\Box$
+
+This definition is similar to the previous one, that is, under the observation of $Y_h=c$, the doctor $h'$ will 
+never give a prediction $Y_{h'}=c'$
 
 **Theorem 7**.
-Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
-satisfies counterfactual stability for $h, h' \in H$
+*Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
+satisfies counterfactual stability for $h, h' \in H$.* $\Box$
+
+We can use Corollary 1 and Corollary 2 to prove it, use Corollary 2, we know that 
+for all $\zeta_1,\zeta_2,\zeta_3 \subseteq H$ so that $h\in\zeta_1,h'\in\zeta_2,h,h'\in\zeta_3$
+$$
+P^{\mathcal{M}|X=x, Z=\zeta_1, Y_h=c;\text{do}[Z=\zeta_2]}(Y_{h'}=c')=0\Longleftrightarrow P^{\mathcal{M}|X=x, Z={h},Y_h=c,\text{do}[Z={h'}]}(Y_{h'}=c')=0
+$$
+$$
+P^{\mathcal{M}|X=x,Z={h},Y_h=c,do[Z={h'}]}(Y_{h'}=c')=0\Longleftrightarrow P^{\mathcal{M};\text{do}[Z=\zeta_3]}(Y_{h'}=c'|X=x,Z=\zeta_3,Y_h=c)=0
+$$
+Recall that $P_{\zeta}(h,c):=P^{\mathcal{M};\text{do}[Z=\zeta]}(Y_h =c|X)$ and $p_h(c):=P^{\mathcal{M};\text{do}[Z={h}]}(Y_h=c|X)$.
+
+As we know from Corollary 1,
+$$
+p_{\zeta}(h,c)=p_h(h,c)=p_{\zeta'}(h,c).
+$$
+Thus, 
+$$
+\frac{p_{\zeta_2}(h',c)}{p_{\zeta_1}(h,c)}\ge \frac{p_{\zeta_2}(h',c')}{p_{\zeta_1}(h,c')}\Longleftrightarrow\frac{p_{h'}(h',c)}{p_h(h,c)}\ge\frac{p_{h'}(h',c')}{p_h(h.c')}
+\Longleftrightarrow\frac{p_{\zeta_3}(h',c)}{p_{\zeta_3}(h,c)}\ge\frac{p_{\zeta_3}(h',c')}{p_{\zeta_3}(h,c')}
+$$
+
+Then, we can make a broader definition:
 
 **Definition 8** (Pairwise Counterfactual Stability). 
-A SCM $\mathcal{M}$ satisfies pairwise counterfactual stability for a
+*A SCM $\mathcal{M}$ satisfies pairwise counterfactual stability for a
 group of experts $\zeta \subseteq H$ with respect to $Y$ if 
-it satisfies counterfactual stability for any $h, h' \in \zeta$.
+it satisfies counterfactual stability for any $h, h' \in \zeta$.* $\Box$
 
 **Corollary 3**. 
-Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
+*Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
 satisfies pairwise counterfactual stability for
-$\zeta \in H$ with respect to $Y$ if it satisfies pairwise conditional stability.
+$\zeta \in H$ with respect to $Y$ if it satisfies pairwise conditional stability.* $\Box$
 
 ## Gumbel-Max SI-SCM
 

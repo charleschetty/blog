@@ -11,6 +11,7 @@ head:
       href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
 ---
 
+> LastUpdated:2023-01-10
 
 Do not be surprised if you subscribed 
 to my RSS and see I write this article in English. 

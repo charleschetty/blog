@@ -431,6 +431,6 @@ $$
 P^{\mathcal{M}(\Psi);\text{do}[Z=\zeta]}(Y_{h'}=c'|X,Y_h=c)= 0
 $$
 
-As we know from the end of [this chapter](#more-details-about-the-counterfactual-inference)[ chapter](#more-details-about-the-counterfactual-inference),
+As we know from the end of [this chapter](#more-details-about-the-counterfactual-inference),
 we should predict other experts' options using 
 $P_{\mathcal{M};\text{do}[Z=\zeta]} (U|E=e)$, 

@@ -1,6 +1,6 @@
 <template>
     <div class="site-footer">
-        Copyright © 2022 <a class="vitepress" :href="website">Charles Chetty</a>  &nbsp;&middot;&nbsp;
+        Copyright © 2023 <a class="vitepress" :href="website">Charles Chetty</a>  &nbsp;&middot;&nbsp;
         <a class = "vitepress" href="https://charleschetty.github.io/blog/rss.xml" target="_blank">RSS</a>
     </div>
 </template>

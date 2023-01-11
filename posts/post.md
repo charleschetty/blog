@@ -11,7 +11,7 @@ head:
       href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
 ---
 
-> LastUpdated:2023-01-11 12:57
+> LastUpdated:2023-01-11 19:25
 
 Do not be surprised if you subscribed 
 to my RSS and see I write this article in English. 
@@ -433,4 +433,42 @@ $$
 
 As we know from the end of [this chapter](#more-details-about-the-counterfactual-inference),
 we should predict other experts' options using 
-$P_{\mathcal{M};\text{do}[Z=\zeta]} (U|E=e)$, 
+$P_{\mathcal{M};\text{do}[Z=h']} (U|E=e)$, we can use the following formula to estimating the counterfactual distributions
+$$
+P^{\mathcal{M}(\Psi)|X=x,Z=\{h\},Y=y_h;\text{do}[Z=\{h'\}]}(Y) \approx \frac{1}{T}\sum_{t\in T}\mathcal{I}[c=f_{Y_{h'}}(x,u_t)]
+$$
+where ${u_1...,u_T}$ are samples from the posterior distribution $P^{\mathcal{M}(\Psi)|X=x,Z=\{h\},Y=y_h;\text{do}[Z=\{h'\}]}(U_{\psi(h')})$
+of the noise variable $U_{\psi (h')}$. We can use a picture to summarized it.
+
+![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-11_14-25.png)
+
+Now, we know $P_{\mathcal{M};\text{do}[Z=h']} (U|E=e)$, then we can use the SCM to give a prediction.
+
+Then, we need to partition the set of experts $\mathcal{H}$ into disjoint sets of experts $\Psi$.
+If $h$ and $h'$ violate conditional stability, we conclude that $h$ and $h'$ cannot belong 
+to the same group $\psi$. 
+Further, we also conclude that any pair of
+experts whose predictions did not violate conditional stability and were at least once observed for the same
+sample can be similar. But there may be multiple vaild partitions. $\mathcal{P} = \{\Psi\}$
+of the experts into disjoint sets that are consistent with the above conclusions. 
+In order to decide among them, we would like to solve the following minimization problem:
+$$
+\min_{\Psi\in P} \sum_{h,h'\in\mathcal{H}}\mathcal{L}(\mathcal{M}(\Psi),h',h)-\mathcal{L}(\mathcal{M}(\mathcal{H},h',h))
+$$
+
+where $\mathcal{L}(\mathcal{M}(\dot),h,h')$ denotes an average (empirical) 
+loss whenever we observe $Y_h$ and infer the label prediction
+using counterfactual distribution $P^{\mathcal{M}(\dot)|X=x,Z=\{h\},Y=y_h;\text{do}[Z=\{h'\}]}(Y)$.
+And the aim of $\mathcal{L}(\mathcal{M}(\mathcal{H}),h',h)$ is to reduce the number
+of pairs $(h, h')$ we need to consider(why?).
+
+Then we can formulate the Eq above as a clique partitioning problem, and use greedy 
+algorithm to give a approximate solution ,and the algorithm works well in this situation.(From my point of view, it it just a technique
+rather a idea of this paper, so I just use one sentence to describe it)
+
+## Code implementation  
+
+As a Rust fan, I would like to rewrite the [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) in Rust 
+
+Todo
+

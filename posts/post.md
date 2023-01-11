@@ -11,7 +11,7 @@ head:
       href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
 ---
 
-> LastUpdated:2023-01-10
+> LastUpdated:2023-01-11 12:57
 
 Do not be surprised if you subscribed 
 to my RSS and see I write this article in English. 
@@ -274,7 +274,7 @@ is the observed outcome under $\text{do}[Z = \zeta]$.* $\Box$
 
 It is easy to understand, $P^{\mathcal{M}|X, Z=\zeta, Y_h=c;do[Z=\zeta']}(Y_{h'}=c')=0$
 means that if we observed $Y_h=c$ at the condition $X=x, Z=\zeta$, then let doctor $h'$ 
-to give an option, he won't give another option that $Y_{h'}=c'$. Since the doctor $h'$
+to give an option, he won't give an another option that $Y_{h'}=c'$. Since the doctor $h'$
 didn't really give an option, it is a counterfactual inference problem, we can see it 
 as an intervention $\text{do}[Z=\zeta']$ 
 
@@ -348,5 +348,89 @@ satisfies pairwise counterfactual stability for
 $\zeta \in H$ with respect to $Y$ if it satisfies pairwise conditional stability.* $\Box$
 
 ## Gumbel-Max SI-SCM
+First, we must know what is Gumbel-Max SCM.
 
+**Definition A** (Gumbel-Max Trick). 
+*We can sample from a categorical distribution with $k$ categories as follows, where
+$\tilde{p}_i$ is the unnormalized probability $P (Y = i)$: 
+First, draw $\{g_1, . . . , g_k\}$ from a standard [Gumbel](https://handwiki.org/wiki/Gumbel_distribution), which can be achieved
+by drawing $\{u_1, . . . , u_k\}$ iid from a $Unif(0, 1)$, and assigning
+$g_i=-\log (-\log u_i)$. Then, set the outcome $j$ by taking $\arg\max _j \log \tilde{p}_j+q_j$.* $\Box$
 
+**Definition B** (Gumbel-Max SCM).
+*The Gumbel-Max SCM is a specific class of SCM in which the causal mechanism for a random categorical
+variable $V$ is defined as*
+$$
+f_v(PA,U):=\arg\max_j\{\log P(V=j|PA)+U_j\}
+$$
+*and each noise variable $U_j \backsim Gumbel(0, 1)$.* $\Box$ 
+
+**Theorem A** *The Gumbel-Max SCM satisfies the counterfactual stability condition.* $\Box$
+
+The proof of the above theorem is not very mathematical in this [paper](https://arxiv.org/abs/1905.05824), I paste it here
+
+>The proof is straightforward, and given in the supplement.
+The intuition is that, when we consider the counterfactual
+distribution, the Gumbel variables are fixed. Thus, in order
+for the argmax (our observed outcome) to change in the
+counterfactual, the log-likelihood of an alternative outcome
+must have increased relative to our observed outcome.
+
+Now, we can introduce the Gumbel-Max I-SCM. Given a set of experts $H$, 
+the Gumbel-Max SI-SCM partitions $H$ into disjoint sets of experts $\Psi = \{\psi\}_{\psi\in\Psi}$, and associate all experts within each set to the same multidimensional noise variable.
+More formally, the Gumbel-Max SI-SCM is defined as follows:
+
+**Definition 9** (Gumbel-Max SI-SCM). 
+*The Gumbel-Max SI-SCM $\mathcal{M}(\Psi)$ is a specific class of SCM in which
+the causal mechanism for $Y$ is defined as*
+$$
+f_Y(X, Z, U) = (f_{Y_h}(X, U))_{h \in Z}
+$$
+*with*
+$$
+f_{Y_h}(X, U_{\psi (h)}) = \arg\max_{c\in\mathcal{y}}\{\log P(Y_h=c|X)+U_{\psi (h),c}\}
+$$
+*where $\psi(h) \in \Psi$ denotes the subgroup expert $h$ 
+belongs to and each noise variable $U_{\psi(h),c} \backsim Gumbel(0, 1)$.* $\Box$
+
+As we know from Theorem 2, $f_Y(X, Z, U) = (f_{Y_h}(X, U))_{h \in Z}$ implies that this SCM is a SI-SCM.
+By definition, the Gumbel-Max SI-SCM $\mathcal{M}(\Psi)$ is set 
+invariant for $Y$ and, for any $\zeta \subseteq H$ and $h \in \zeta$, it
+holds that $P^{\mathcal{M}(\Psi);\text{do}[Z=\zeta]}(Y_h | X) = P(Y_h | X)$. 
+Moreover, all experts within each group $\psi \in \Psi$ are mutually
+similar, as formalized by the following Theorem:
+
+**Theorem 10**. 
+*The Gumbel-Max SI-SCM $\mathcal{M}(\Psi)$ satisfies pairwise counterfactual stability (PCS) 
+for each group $\psi \in \Psi$ with respect to $Y$.* $\Box$. 
+
+We can see this theorem as an extension of Theorem A, let's give the proof.
+As we know from Theorem A, for all sets $\zeta$, so that $h,h'\in\zeta$, and $c\neq c'$
+$$
+P^{\mathcal{M}(\Psi);\text{do}[Z=\zeta]}(Y_{h'}=c'|X,Y_h=c)\neq 0 \Longrightarrow
+\frac{p_{\zeta}(h',c)}{p_{\zeta}(h,c)}<\frac{p_{\zeta}(h',c')}{p_{\zeta}(h,c')}
+$$
+If the conditional probability is positive, almost surely there must exist
+Gumbel noise variables $g_{\psi, c}$ and $g_{\psi, c'}$
+such that
+$$
+\log P(Y_h=c|X)+g_{\psi, c}>\log P(Y_h=c'|X)+g_{\psi, c'}
+$$
+$$
+\log P(Y_{h'}=c|X)+g_{\psi, c} <\log P(Y_{h'}=c'|X)+g_{\psi, c'}
+$$
+Recall that, by set invariance, $p_{\zeta}(h, c) = P(Y_h = c | X)$ for all $\zeta, h, c$.
+We can get this inequality :
+$$
+\frac{p_{\zeta}(h', c)}{p_{\zeta}(h, c)}< \frac{p_{\zeta}(h', c')}{p_{\zeta}(h,c')}
+$$
+This proves that 
+$$
+\frac{p_{\zeta}(h', c)}{p_{\zeta}(h, c)}\geq \frac{p_{\zeta}(h', c')}{p_{\zeta}(h,c')}
+\Longrightarrow 
+P^{\mathcal{M}(\Psi);\text{do}[Z=\zeta]}(Y_{h'}=c'|X,Y_h=c)= 0
+$$
+
+As we know from the end of [this chapter](#more-details-about-the-counterfactual-inference)[ chapter](#more-details-about-the-counterfactual-inference),
+we should predict other experts' options using 
+$P_{\mathcal{M};\text{do}[Z=\zeta]} (U|E=e)$, 

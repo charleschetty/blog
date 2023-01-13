@@ -1,9 +1,10 @@
 ---
-date: 2023-01-10
-title: post
+date: 2023-01-11
+title: Counterfactual Inference of Second Opinions
 tags:
 - paper
-description: post
+- machine learning 
+description: A presentation 
 lastUpdated: true
 head:
   - - link
@@ -468,7 +469,12 @@ rather a idea of this paper, so I just use one sentence to describe it)
 
 ## Code implementation  
 
-As a Rust fan, I would like to rewrite the [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) in Rust 
+~~As a Rust fan, I would like to rewrite the [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) in Rust.~~ 
 
-Todo
+The [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) requires [networkx](https://networkx.org/), 
+but no package does the same as it in [crates.io](https://crates.io/search?q=network).
+So, forget it.....
 
+For the experiment, I think it is useless to repeat it, this kind of behavior is as same as 
+those high school teachers who do experiments on the blackboard. The difference is, it is easy to 
+reproduce this experiment because we can find the code on github. So, I omitted this part.  

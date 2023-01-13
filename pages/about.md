@@ -13,3 +13,6 @@ aside: false
 所以倘若哪位朋友不小心点进这个博客，可能会看见一些奇怪的东西。
 
 由于使用了github图床，可能在某些网络环境下图片无法加载，如果出现这种情况，请自行开代理或者使用[其他dns](https://en.wikipedia.org/wiki/Public_recursive_name_server#List_of_public_DNS_service_operators)。国内已知[阿里dns](https://alidns.com/)没有问题，不过速度很慢。
+
+关于订阅，本站最底下的RSS链接可以用，不了解RSS的话随便一搜就有，客户端推荐[feeder](https://gitlab.com/spacecowboy/Feeder)，[easyrss](https://github.com/arguablykomodo/easy-rss)，[newsflash](https://gitlab.com/news-flash/news_flash_gtk)
+

@@ -35,10 +35,10 @@ lastUpdated: true
 
 - [Rust圣经](https://course.rs/about-book.html)：做的比官方教程好，推荐看这个
 - [Rust第一课](https://github.com/tyrchen/geektime-rust)：付费教程，做的很好，不愿意花钱的话网上有电子版
+- [Rust网络编程](https://www.bilibili.com/video/BV1b54y1X7my?p=1)：感觉有些过时了，grpc用的那库两年不更新了，但这是我目前网络上找的唯一还算系统的材料
 
 未来要看
 
-- [Rust网络编程](https://www.bilibili.com/video/BV1b54y1X7my?p=1)：正在看，两周之内必看完（单纯看很快，但主要还得干别的）
 - [tokio](https://tokio.rs/)：这已经算是RUST必学内容了，tokio不会都不好意思说学过Rust，一个月内必看完。
 - [常用库](https://blessed.rs/crates)：按需求看吧，这个是长期工作。
 

@@ -12,7 +12,6 @@ head:
       href: https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css
 ---
 
-> LastUpdated:2023-01-11 19:25
 
 Do not be surprised if you subscribed 
 to my RSS and see I write this article in English. 
@@ -38,6 +37,11 @@ do what you love to do, the following content is about the paper I will present.
 I write this article based on my ppt. If you can't see the pictures, maybe your internet condition is **special**,
 I have no idea, but there are some ways that may help and I wrote them 
 on the About of this website.
+
+- ppt : [https://raw.githubusercontent.com/charleschetty/picturebed/main/tex/p1/1.pdf](https://raw.githubusercontent.com/charleschetty/picturebed/main/tex/p1/1.pdf)
+
+- paper : [https://arxiv.org/abs/2203.08653](https://arxiv.org/abs/2203.08653)
+
 
 ## Some examples of counterfactual inference  
 
@@ -71,7 +75,9 @@ it is necessary to know some knowledge about causal inference.
 which I used to use is less flexible(but more convenient) and it doesn't support Tex. So I use [Tikz](https://tikz.dev/) to make the pictures, but they look ugly in dark mode, if you 
 know better tools, please let me know.
 
-![figure 1](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_12-07.png)
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_12-07.png">
+</div>
 
 See the picture above, this is a simple structural causal model, while we can express it as follow 
 $$
@@ -88,8 +94,10 @@ picture, $U$ is the only source of stochasticity. If we use $\mathcal{M}$ to den
 use $P^\mathcal{M}$ to denote the distribution entailed by $\mathcal{M}$.
 We use $\mathcal{X}=\{X, Y, Z\}$ to denote the random variables. 
 
-<!-- ![figure 1](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_13-19.png) -->
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-30.png)
+
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-30.png">
+</div>
 
 Then, look at this picture, there is an intervention $\mathcal{I}$ assign $x_0$ to X,
 the path between $Z$ and $X$ and the path between $U_x$ and $X$ has been cut off, $Z$ is a cause of $X$, but we now know that 
@@ -102,11 +110,16 @@ is just an observation or, knowledge, $Z$ will still affect $X$.
 
 So, given a (partial)observation $\mathcal{X}_p =\{X=x_0, Z=z_0\}$, the graph will look like this. 
 
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_14-07.png)
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_14-07.png">
+</div>
 
 Then, there is an intervention $\mathcal{I} = \text{do} [Z=z_0]$, now the graph will look like this. 
 
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_14-10.png)
+
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_14-10.png">
+</div>
 
 Now we can go on, given a SCM $\mathcal{M}$, now we have an intervention $\mathcal{I}$, and it will
 change the structure of the model, so we describe the distribution by $P^{\mathcal{M}:\mathcal{I}}$.
@@ -125,7 +138,9 @@ as $\mathcal{P}^{\mathcal{M}|X=x:\mathcal{I}}$
 The counterfactual statement can be viewed as an intervention, let's use the first example I described.
 
 
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_15-31.png)
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_15-31.png">
+</div>
 
 If the guy didn't take medicine, the intervention is $\mathcal{I}=\text{do}[M=0]$, and you can see the details in the picture above.
 
@@ -165,8 +180,10 @@ $\mathcal{I}=[Z=\{h'\}]$in the
 counterfactual SCM $M_{X=x, Z={h}, Y =y_h}$ and, to infer the label prediction $y_{h'}$, we just need to resort to the
 counterfactual distribution $P^{M | X=x, Z={h}, Y =y_h; do[Z={h'}]}(Y )$.
 
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_19-03.png)
 
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_19-03.png">
+</div>
 
 ## Relating the Counterfactual and Interventional Worlds
 
@@ -447,9 +464,12 @@ $$
 P^{\mathcal{M}(\Psi)|X=x,Z=\{h\},Y=y_h;\text{do}[Z=\{h'\}]}(Y) \approx \frac{1}{T}\sum_{t\in T}\mathcal{I}[c=f_{Y_{h'}}(x,u_t)]
 $$
 where ${u_1...,u_T}$ are samples from the posterior distribution $P^{\mathcal{M}(\Psi)|X=x,Z=\{h\},Y=y_h;\text{do}[Z=\{h'\}]}(U_{\psi(h')})$
-of the noise variable $U_{\psi (h')}$. We can use a picture to summarized it.
+of the noise variable $U_{\psi (h')}$. We can use a picture to summarize it.
 
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-11_14-25.png)
+
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-11_14-25.png">
+</div>
 
 Now, we know $P_{\mathcal{M};\text{do}[Z=h']} (U|E=e)$, then we can use the SCM to give a prediction.
 
@@ -458,7 +478,7 @@ If $h$ and $h'$ violate conditional stability, we conclude that $h$ and $h'$ can
 to the same group $\psi$. 
 Further, we also conclude that any pair of
 experts whose predictions did not violate conditional stability and were at least once observed for the same
-sample can be similar. But there may be multiple vaild partitions. $\mathcal{P} = \{\Psi\}$
+sample can be similar. But there may be multiple valid partitions. $\mathcal{P} = \{\Psi\}$
 of the experts into disjoint sets that are consistent with the above conclusions. 
 In order to decide among them, we would like to solve the following minimization problem:
 $$
@@ -471,20 +491,51 @@ using counterfactual distribution $P^{\mathcal{M}(\dot)|X=x,Z=\{h\},Y=y_h;\text{
 And the aim of $\mathcal{L}(\mathcal{M}(\mathcal{H}),h',h)$ is to reduce the number
 of pairs $(h, h')$ we need to consider(why?).
 
-Then we can formulate the Eq above as a clique partitioning problem, and use greedy 
-algorithm to give a approximate solution ,and the algorithm works well in this situation.(From my point of view, it it just a technique
-rather a idea of this paper, so I just use one sentence to describe it)
+Then we can formulate the Eq above as a clique partitioning problem, and use a greedy algorithm to give an approximate solution, and the algorithm works well in this situation. (From my point of view, it is just a technique rather than an idea of this paper, so I just use one sentence to describe it)
 
 ## Code implementation  
 
 ~~As a Rust fan, I would like to rewrite the [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) in Rust.~~ 
 
 The [code](https://github.com/Networks-Learning/cfact-inference-second-opinions) requires [networkx](https://networkx.org/), 
-but no package does the same as it in [crates.io](https://crates.io/search?q=network).
+but no package does the same as it is in [crates.io](https://crates.io/search?q=network).
 So, forget it.....
 
+## Experiments
 For the experiment, I think it is useless to repeat it, this kind of behavior is as same as 
 those high school teachers who do experiments on the blackboard. The difference is, it is easy to 
-reproduce this experiment because we can find the code on github. So, I omitted this part.  
-And the result is here
-![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-42.png)
+reproduce this experiment because we can find the code on github. So, I will talk about it briefly.
+
+The result is here,
+
+<div align = "center">
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-42.png">
+</div>
+
+  - Dataset :  CIFAR-10H
+  - 1: Filter out data  from any expert who made less than 130 and (more than) 20 predictions
+  - 2: Use 20 dimensional feature vectors
+computed by running PCA on a 512 dimensional normalized feature vector extracted using VGG19
+  - 3: Estimate the conditional distribution $P^{\mathcal{M};do[Z=h']}(Y_h|X)$ or each expert h using a Gaussian Naive Bayes model 
+    (One GNB per expert). 
+
+  - 4: Using Gumbel-Max SI-SCM
+
+
+  The “GNB” baseline uses only the same Gaussian Naive Bayes models (GNB), one per expert, used by our
+trained Gumbel-Max SI-SCM. More specifically, given an observed label prediction $Y_h$ by an expert $h$, it
+  infers the prediction $Y_{h'}$ by another expert $h'$ using the most likely label under the estimate of the conditional
+  distribution $P^{\mathcal{M} ; do[Z=h']}(Y_{h'} | X)$ given by the corresponding GNB.
+
+The “GNB + CNB” baseline uses the same Gaussian Naive Bayes models (GNB), one per expert, used by
+our trained Gumbel-Max SI-SCM and a Categorical Naive Bayes (CNB) model, one per expert, that estimates
+    $P^{\mathcal{M}; do[Z=\{h,h'\}]}(Y_{h'} | Y_h)$
+    More specifically, given an observed label prediction $Y_h$ by an expert $h$, it
+    infers the prediction $Y_{h'}$ by another expert $h'$ 
+    using the most likely label under the product of distributions
+    $P^{\mathcal{M}; do[Z={h'}]}(Y_{h'} | X) \times P^{\mathcal{M}; do[Z=\{h,h'\}]}(Y_{h'} | Y_h)$, as estimated by the corresponding GNB (first term)
+    and CNB (second term).
+<div align=center>
+<img src = "https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_19-49.png">
+</div>
+

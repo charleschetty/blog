@@ -88,10 +88,11 @@ picture, $U$ is the only source of stochasticity. If we use $\mathcal{M}$ to den
 use $P^\mathcal{M}$ to denote the distribution entailed by $\mathcal{M}$.
 We use $\mathcal{X}=\{X, Y, Z\}$ to denote the random variables. 
 
-![figure 1](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_13-19.png)
+<!-- ![figure 1](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-09_13-19.png) -->
+![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-30.png)
 
 Then, look at this picture, there is an intervention $\mathcal{I}$ assign $x_0$ to X,
-the path between $Z$ and $X$ has been cut off, $Z$ is a cause of $X$, but we now know that 
+the path between $Z$ and $X$ and the path between $U_x$ and $X$ has been cut off, $Z$ is a cause of $X$, but we now know that 
 $X=x_0$, so no matter what $Z$ is, it does not affect $X$.We use $\mathcal{I} = \text{do} [X = x_0]$ 
 to describe it. 
 
@@ -314,7 +315,7 @@ never give a prediction $Y_{h'}=c'$
 
 **Theorem 7**.
 *Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
-satisfies counterfactual stability for $h, h' \in H$.* $\Box$
+satisfies counterfactual stability for $h, h' \in H$. if it satisfies conditional stability.* $\Box$
 
 We can use Corollary 1 and Corollary 2 to prove it, use Corollary 2, we know that 
 for all $\zeta_1,\zeta_2,\zeta_3 \subseteq H$ so that $h\in\zeta_1,h'\in\zeta_2,h,h'\in\zeta_3$
@@ -342,6 +343,13 @@ Then, we can make a broader definition:
 *A SCM $\mathcal{M}$ satisfies pairwise counterfactual stability for a
 group of experts $\zeta \subseteq H$ with respect to $Y$ if 
 it satisfies counterfactual stability for any $h, h' \in \zeta$.* $\Box$
+
+Similarly as in the case with a pair of experts, one can also
+define pairwise conditional stability and it immediately follows
+from Theorem 7 that, for SI-SCM, pairwise conditional and
+counterfactual stability are equivalent, as formalized by the
+following Corollary.
+Corollary 3. Let SCM M be set invariant for Y. Then, M
 
 **Corollary 3**. 
 *Let SCM $\mathcal{M}$ be set invariant for $Y$. Then, $\mathcal{M}$ 
@@ -406,7 +414,7 @@ similar, as formalized by the following Theorem:
 for each group $\psi \in \Psi$ with respect to $Y$.* $\Box$. 
 
 We can see this theorem as an extension of Theorem A, let's give the proof.
-As we know from Theorem A, for all sets $\zeta$, so that $h,h'\in\zeta$, and $c\neq c'$
+We will prove that for all sets $\zeta$, so that $h,h'\in\zeta$, and $c\neq c'$
 $$
 P^{\mathcal{M}(\Psi);\text{do}[Z=\zeta]}(Y_{h'}=c'|X,Y_h=c)\neq 0 \Longrightarrow
 \frac{p_{\zeta}(h',c)}{p_{\zeta}(h,c)}<\frac{p_{\zeta}(h',c')}{p_{\zeta}(h,c')}
@@ -478,3 +486,5 @@ So, forget it.....
 For the experiment, I think it is useless to repeat it, this kind of behavior is as same as 
 those high school teachers who do experiments on the blackboard. The difference is, it is easy to 
 reproduce this experiment because we can find the code on github. So, I omitted this part.  
+
+![](https://raw.githubusercontent.com/charleschetty/picturebed/main/picture/2023-01-19_18-42.png)

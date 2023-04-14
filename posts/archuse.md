@@ -530,6 +530,7 @@ paru -S r radian
 
 ```shell
 paru -S virtualbox qemu-full libvirt Virt-Manager
+sudo usermod --append --groups libvirt `whoami`
 ```
 
 用的时候启动libvirt守护进程，开启网络，**如果你网络环境改变会断网**，这时候你需要把`default`destroy掉再开一遍。
@@ -594,6 +595,9 @@ paru -S yesplaymusic netease-cloud-music-gtk4
 ```
 
 安装网盘，个人使用[阿里云webdav](https://github.com/messense/aliyundrive-webdav)，好处是免费，不限速，按照github说明安装即可，可以在dolphin或Thunar中[开启webdav](https://wiki.archlinux.org/title/WebDAV#Dolphin)。我的zshrc里有相关一行。
+```shell
+yay -S gvfs gfvs-smb sshfs
+```
 
 安装安卓投屏工具，具体使用可以看[这个](https://arch.icekylin.online/apps/collaboration.html#%E6%9C%89%E7%BA%BF%E8%BF%9E%E6%8E%A5)，我自己就安上时候用来几次，在就没用过。
 

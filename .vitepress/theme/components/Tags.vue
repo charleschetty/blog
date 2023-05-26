@@ -1,13 +1,13 @@
 <template>
     <div class="tags">
         <span @click="toggleTag(key)" v-for="(item, key) in data" class="tag">
-            {{ key }} <strong>{{data[key].length}}</strong>
+            {{ key }} <strong>{{ data[key].length }}</strong>
         </span>
     </div>
-    <div class="header">{{ selectTag }}</div>
-    <a :href="withBase(article.regularPath)" v-for="(article, index) in data[selectTag]" :key="index" class="article">
-        <div class="titleDiv">
-            <div class="title-o"></div>
+    <div class="tag-header">{{ selectTag }}</div>
+    <a :href="withBase(article.regularPath)" v-for="(article, index) in data[selectTag]" :key="index" class="posts">
+        <div class="post-container">
+            <div class="post-dot"></div>
             {{ article.frontMatter.title }}
         </div>
         <div class="date">{{ article.frontMatter.date }}</div>
@@ -15,12 +15,13 @@
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useData,withBase } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 import { initTags } from '../functions'
-
+let url = location.href.split('?')[1]
+let params = new URLSearchParams(url)
 const { theme } = useData()
 const data = computed(() => initTags(theme.value.posts))
-let selectTag = ref('')
+let selectTag = ref(params.get('tag') ? params.get('tag') : '')
 const toggleTag = (tag: string) => {
     selectTag.value = tag
 }
@@ -38,22 +39,24 @@ const toggleTag = (tag: string) => {
     margin: 6px 8px;
     font-size: 0.875rem;
     line-height: 25px;
-    background-color: var(--vp-c-bg-soft);
+    background-color: var(--vp-c-bg-alt);
     transition: 0.4s;
-    border-radius: 3px;
+    border-radius: 2px;
     color: var(--vp-c-text-1);
     cursor: pointer;
 }
-.tag strong {color:var(--vp-c-brand)}
-.header {
-    font-size: 2rem;
-    font-weight: 600;
+.tag strong {
+    color: var(--vp-c-brand);
+}
+.tag-header {
+    font-size: 1.5rem;
+    font-weight: 500;
     margin: 1rem 0;
-    text-align: center;
+    text-align: left;
 }
 
-@media screen and (max-width: 700px) {
-    .header {
+@media screen and (max-width: 768px) {
+    .tag-header {
         font-size: 1.5rem;
     }
     .date {
